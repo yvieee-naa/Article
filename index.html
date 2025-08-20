@@ -1,108 +1,80 @@
 <!doctype html>
-
-<html lang="id" data-theme="system">
+<html lang="id">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Template Artikel HTML5 — Na</title>  <style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Artikel Pemrograman — Na</title>
+  <style>
     :root {
-      --bg: #0b0c10;
-      --surface: #121318;
-      --text: #e6e6e6;
-      --muted: #a7a7ad;
-      --brand: #6ee7b7;
-      --brand-ink: #073b2d;
-      --accent: #7aa2f7;
-      --danger: #ef4444;
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --maxw: 62rem;
-      --font-sans: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Noto Sans", Arial, sans-serif;
-      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-      --leading: 1.7;
+      --radius: 8px;
+      --maxw: 800px;
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
-    
-    .post img {
-  max-width: 100%;
-  height: auto;
-  border-radius: calc(var(--radius) - 6px);
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,.25);
-}
-
     body {
       margin: 0;
       font-family: var(--font-sans);
-      background: var(--bg);
-      color: var(--text);
-      line-height: var(--leading);
+      line-height: 1.7;
+      transition: background .3s, color .3s;
     }
-    .container { max-width: var(--maxw); margin: 0 auto; padding: 1.5rem; }
-    .post { background: var(--surface); border-radius: var(--radius); padding: 1.5rem; box-shadow: var(--shadow); }
-    .post h1 { margin-top: .2rem; margin-bottom: .6rem; font-size: clamp(1.4rem, 1.6vw + 1rem, 2.4rem); }
-    .post .subtitle { margin-top: 0; color: var(--muted); }
-    .post .byline { display: flex; gap: .8rem; align-items: center; color: var(--muted); font-size: .95rem; }
-    .post .byline img { width: 36px; height: 36px; border-radius: 50%; }
-    .post hr { border: none; border-top: 1px solid color-mix(in oklab, var(--text) 12%, transparent); margin: 1.4rem 0; }
-    .post blockquote { margin: 1rem 0; padding: 1rem 1.2rem; border-left: 4px solid var(--brand); background: color-mix(in oklab, var(--brand) 8%, transparent); border-radius: calc(var(--radius) - 10px); }
-    .post pre { background: #0a0b0f; color: #e6e6e6; padding: 1rem; border-radius: calc(var(--radius) - 10px); overflow: auto; }
-    .post figure { margin: 1.2rem 0; }
-    .post figcaption { color: var(--muted); font-size: .9rem; text-align: center; margin-top: .4rem; }
-  </style></head>
-<body>
+    body.light {
+      --bg: #ffffff;
+      --surface: #f6f8fa;
+      --text: #24292e;
+      --muted: #57606a;
+      --code-bg: #f6f8fa;
+    }
+    body.dark {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --text: #c9d1d9;
+      --muted: #8b949e;
+      --code-bg: #161b22;
+    }
+    body { background: var(--bg); color: var(--text); }
+    .container { max-width: var(--maxw); margin: auto; padding: 1.5rem; }
+    .post { background: var(--surface); border-radius: var(--radius); padding: 1.5rem; }
+    .post h1 { margin: .2rem 0 1rem; }
+    .post .subtitle { color: var(--muted); margin-top: -.5rem; }
+    .post img { max-width: 100%; border-radius: var(--radius); display: block; margin: 1rem auto; }
+    .post blockquote { border-left: 4px solid #2da44e; padding-left: 1rem; color: var(--muted); }
+    .post pre { background: var(--code-bg); padding: 1rem; border-radius: var(--radius); overflow-x: auto; }
+    .post code { font-family: var(--font-mono); }
+    .byline { font-size: .9rem; color: var(--muted); margin-bottom: 1rem; }
+    .theme-toggle {
+      float: right;
+      cursor: pointer;
+      background: none;
+      border: 1px solid var(--muted);
+      padding: .3rem .6rem;
+      border-radius: var(--radius);
+      font-size: .9rem;
+    }
+  </style>
+</head>
+<body class="light">
   <main class="container">
+    <button class="theme-toggle" onclick="toggleTheme()">🌙/☀️</button>
     <article class="post">
-      <header>
-        <p class="chip" title="Kategori">💻 Pemrograman</p>
-        <h1>Pengenalan Bahasa Pemrograman</h1>
-        <p class="subtitle">Bahasa pemrograman adalah alat utama untuk berkomunikasi dengan komputer.</p>
-        <div class="byline">
-          <img src="https://picsum.photos/seed/programming/200" alt="Avatar penulis" />
-          <span>Ditulis oleh <strong>Na</strong> • <time datetime="2025-08-20">20 Agustus 2025</time> • 7 menit baca</span>
-        </div>
-      </header><figure>
-    <img src="https://images.app.goo.gl/g19r3nbB9dwF7SzD8" alt="Ilustrasi kode pemrograman" />
-    <figcaption>Ilustrasi bahasa pemrograman.</figcaption>
-  </figure>
+      <h1>Pengenalan Bahasa Pemrograman</h1>
+      <p class="subtitle">Bahasa pemrograman adalah alat utama untuk berkomunikasi dengan komputer.</p>
+      <div class="byline">Ditulis oleh Na • 20 Agustus 2025</div>
 
-  <p>
-    Bahasa pemrograman adalah seperangkat aturan dan sintaks yang digunakan programmer untuk memberi instruksi kepada komputer. Tanpa bahasa pemrograman, mustahil kita bisa membuat aplikasi, website, maupun game.
-  </p>
+      <p>Bahasa pemrograman adalah seperangkat aturan dan sintaks yang digunakan programmer untuk memberi instruksi kepada komputer.</p>
 
-  <h2>Kategori Bahasa Pemrograman</h2>
-  <ul>
-    <li><strong>Bahasa Tingkat Tinggi:</strong> Mudah dipahami manusia, contoh: Python, Java, JavaScript.</li>
-    <li><strong>Bahasa Tingkat Rendah:</strong> Lebih dekat ke mesin, contoh: Assembly, C.</li>
-    <li><strong>Bahasa Spesifik:</strong> Dirancang untuk tujuan tertentu, contoh: SQL untuk database.</li>
-  </ul>
-
-  <h2>Kenapa Harus Belajar Pemrograman?</h2>
-  <ol>
-    <li>Membuka peluang karir di bidang teknologi.</li>
-    <li>Membantu menyelesaikan masalah dengan cara otomatisasi.</li>
-    <li>Meningkatkan pola pikir logis dan kreatif.</li>
-  </ol>
-
-  <blockquote>
-    “Talk is cheap. Show me the code.” — Linus Torvalds
-  </blockquote>
-
-  <h3>Contoh Kode Python</h3>
-  <pre><code>def halo():
-print("Halo, dunia!")
+      <h2>Contoh Kode Python</h2>
+      <pre><code>def halo():
+    print("Halo, dunia!")
 
 halo()</code></pre>
-
-<h2>Kesimpulan</h2>
-  <p>
-    Bahasa pemrograman adalah pondasi dari dunia teknologi modern. Dengan menguasainya, kita bisa menciptakan solusi, inovasi, dan bahkan peluang baru di masa depan.
-  </p>
-
-  <hr />
-  <p class="meta">Tag: <a href="#">#Programming</a> <a href="#">#Python</a> <a href="#">#Pplg</a></p>
-</article>
-
+    </article>
   </main>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      document.body.classList.toggle('light');
+    }
+  </script>
 </body>
 </html>
