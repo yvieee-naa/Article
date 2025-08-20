@@ -1,164 +1,136 @@
 <!doctype html>
+
 <html lang="id">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Bahasa Pemrograman — Na</title>
+  <title>Bahasa Pemrograman</title>
   <style>
     :root {
+      --bg-light: #f9fafb;
+      --text-light: #1a1a1a;
+      --card-light: #ffffff;
+      --bg-dark: #0d1117;
+      --text-dark: #e6edf3;
+      --card-dark: #161b22;
+      --accent: #2563eb;
       --radius: 12px;
-      --maxw: 680px;
+      --maxw: 800px;
+      --shadow: 0 4px 12px rgba(0,0,0,.1);
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
     }
     body {
-      margin: 0;
       font-family: var(--font-sans);
-      line-height: 1.6;
+      margin: 0;
+      background: var(--bg-light);
+      color: var(--text-light);
       transition: background .3s, color .3s;
     }
-    body.light {
-      --bg: #ffffff;
-      --surface: #f7f9f9;
-      --text: #0f1419;
-      --muted: #536471;
-      --link: #1d9bf0;
-      --code-bg: #f1f2f3;
-    }
-    body.dark {
-      --bg: #000000;
-      --surface: #16181c;
-      --text: #e7e9ea;
-      --muted: #8b98a5;
-      --link: #1d9bf0;
-      --code-bg: #0d1117;
-    }
-    body { background: var(--bg); color: var(--text); }
-    .container { max-width: var(--maxw); margin: auto; padding: 1rem; }
-    .card {
-      background: var(--surface);
+    body.dark { background: var(--bg-dark); color: var(--text-dark); }
+    .container { max-width: var(--maxw); margin: auto; padding: 2rem 1rem; }
+    .post {
+      background: var(--card-light);
+      padding: 2rem;
       border-radius: var(--radius);
-      padding: 1.2rem 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      box-shadow: var(--shadow);
+      margin-bottom: 2rem;
+      transition: background .3s, color .3s;
     }
-    .card h1 { font-size: 1.6rem; margin: 0.2rem 0 1rem; }
-    .card h2 { margin-top: 1.5rem; font-size: 1.2rem; }
-    .subtitle { color: var(--muted); margin-top: -.3rem; }
-    .byline { font-size: .9rem; color: var(--muted); margin-bottom: 1rem; }
-    .card img {
+    body.dark .post { background: var(--card-dark); }
+    .post h1 { margin-top: 0; font-size: 2rem; }
+    .post h2 { margin-top: 1.5rem; color: var(--accent); font-size: 1.3rem; }
+    .post p { margin: 1rem 0; }
+    .post img {
       max-width: 100%;
       border-radius: var(--radius);
       display: block;
-      margin: 1rem 0;
+      margin: 1rem auto;
+      box-shadow: var(--shadow);
     }
-    .card blockquote {
-      border-left: 4px solid var(--link);
+    .post blockquote {
+      border-left: 4px solid var(--accent);
       padding-left: 1rem;
-      color: var(--muted);
+      color: gray;
       font-style: italic;
+      margin: 1.5rem 0;
     }
-    .card pre {
-      background: var(--code-bg);
+    .post pre {
+      background: #f3f4f6;
       padding: 1rem;
       border-radius: var(--radius);
       overflow-x: auto;
     }
-    .card code { font-family: var(--font-mono); }
+    body.dark .post pre { background: #21262d; }
+    .post code { font-family: var(--font-mono); }
+    .byline { font-size: .9rem; color: gray; margin-bottom: 1rem; }
     .theme-toggle {
-      float: right;
-      cursor: pointer;
       background: none;
-      border: 1px solid var(--muted);
-      padding: .3rem .6rem;
+      border: 1px solid gray;
       border-radius: var(--radius);
-      font-size: .9rem;
+      padding: .3rem .6rem;
+      cursor: pointer;
+      float: right;
     }
-    a { color: var(--link); text-decoration: none; }
   </style>
 </head>
-<body class="light">
+<body>
   <main class="container">
-    <button class="theme-toggle" onclick="toggleTheme()">🌙/☀️</button>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙/☀️</button><article class="post">
+  <h1>Bahasa Pemrograman</h1>
+  <div class="byline">Ditulis oleh Na • 20 Agustus 2025</div>
 
-    <article class="card">
-      <h1>Bahasa Pemrograman</h1>
-      <p class="subtitle">Mengenal apa itu bahasa pemrograman, evolusinya, hingga fungsinya di berbagai bidang.</p>
-      <div class="byline">Ditulis oleh Na • 20 Agustus 2025</div>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Programming_language_family_tree.png" alt="Ilustrasi bahasa pemrograman">
 
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/18/Programming_language_family_tree.png" alt="Ilustrasi evolusi bahasa pemrograman">
+  <h2>Apa itu Bahasa Pemrograman?</h2>
+  <p>
+    Bahasa pemrograman adalah sarana komunikasi antara manusia dan komputer. Dengan bahasa ini, manusia dapat menuliskan instruksi yang kemudian dipahami mesin untuk menjalankan berbagai tugas, mulai dari aplikasi sederhana hingga sistem kecerdasan buatan.
+  </p>
 
-      <h2>Apa itu Bahasa Pemrograman?</h2>
-      <p>
-        Bahasa pemrograman adalah alat komunikasi antara manusia dengan komputer. 
-        Dengan bahasa ini, kita bisa memberi instruksi kepada mesin, 
-        membangun aplikasi, membuat game, hingga mengembangkan kecerdasan buatan.
-      </p>
+  <blockquote>
+    “Bahasa pemrograman bukan hanya soal sintaks, tapi cara berpikir untuk menyelesaikan masalah.”
+  </blockquote>
 
-      <blockquote>
-        “Bahasa pemrograman bukan hanya sekadar menulis kode, tetapi cara berpikir 
-        untuk menyelesaikan masalah.” 
-      </blockquote>
+  <h2>Sejarah Singkat</h2>
+  <p>
+    Perkembangan bahasa pemrograman dimulai dari <em>machine language</em> yang hanya terdiri dari angka biner <code>0</code> dan <code>1</code>. Kemudian hadir Assembly yang lebih mudah dipahami manusia. Selanjutnya, bahasa tingkat tinggi seperti <strong>C</strong>, <strong>Java</strong>, dan <strong>Python</strong> mempermudah developer membangun aplikasi yang kompleks dengan sintaks yang lebih manusiawi.
+  </p>
 
-      <h2>Sejarah Singkat</h2>
-      <p>
-        Perjalanan bahasa pemrograman dimulai dari bahasa mesin yang hanya berisi angka <code>0</code> dan <code>1</code>, 
-        lalu berkembang menjadi Assembly dengan instruksi singkat, dan akhirnya lahir bahasa tingkat tinggi 
-        seperti <strong>C</strong>, <strong>Java</strong>, dan <strong>Python</strong> yang lebih mudah dipahami.
-      </p>
+  <h2>Kategori Bahasa Pemrograman</h2>
+  <ol>
+    <li><strong>Bahasa Mesin</strong> — berbasis biner. <em>Bidang:</em> hardware, mikrokontroler.</li>
+    <li><strong>Assembly</strong> — instruksi singkat seperti <code>MOV</code>, <code>ADD</code>. <em>Bidang:</em> sistem operasi, driver.</li>
+    <li><strong>C</strong> — cepat, efisien. <em>Bidang:</em> sistem operasi, software performa tinggi.</li>
+    <li><strong>C++</strong> — OOP, fleksibel. <em>Bidang:</em> game engine, aplikasi desktop.</li>
+    <li><strong>Java</strong> — portabel. <em>Bidang:</em> enterprise, Android.</li>
+    <li><strong>Python</strong> — sederhana, banyak library. <em>Bidang:</em> AI, data science, web.</li>
+    <li><strong>JavaScript</strong> — web utama. <em>Bidang:</em> front-end, fullstack.</li>
+    <li><strong>SQL</strong> — bahasa database. <em>Bidang:</em> pengelolaan data.</li>
+  </ol>
 
-      <h2>Kategori Bahasa Pemrograman</h2>
-      <ol>
-        <li><strong>Bahasa Mesin</strong> — instruksi langsung dalam biner. 
-          <em>Bidang:</em> perangkat keras, sistem embedded.</li>
-        <li><strong>Assembly</strong> — instruksi singkat seperti <code>MOV</code>, <code>ADD</code>. 
-          <em>Bidang:</em> sistem operasi, driver.</li>
-        <li><strong>C</strong> — cepat dan efisien. 
-          <em>Bidang:</em> sistem operasi, kernel, software performa tinggi.</li>
-        <li><strong>C++</strong> — mendukung OOP, banyak dipakai untuk game. 
-          <em>Bidang:</em> game engine, aplikasi desktop.</li>
-        <li><strong>Java</strong> — portabel, bisa berjalan di berbagai perangkat. 
-          <em>Bidang:</em> enterprise, Android, backend.</li>
-        <li><strong>Python</strong> — sintaks sederhana, banyak library. 
-          <em>Bidang:</em> AI, data science, automasi, web.</li>
-        <li><strong>JavaScript</strong> — bahasa utama web. 
-          <em>Bidang:</em> website interaktif, fullstack (Node.js).</li>
-        <li><strong>SQL</strong> — khusus database. 
-          <em>Bidang:</em> data management.</li>
-      </ol>
+  <h2>Contoh Kode Python</h2>
+  <pre><code># Program sederhana Python
 
-      <h2>Contoh Kode Python</h2>
-      <pre><code># Python sederhana
-def sapa(nama):
-    print(f"Halo, {nama}!")
+def sapa(nama): print(f"Halo, {nama}!")
 
 sapa("Na")</code></pre>
 
-      <h2>Kenapa Harus Belajar?</h2>
-      <p>
-        Belajar bahasa pemrograman membuka peluang besar, dari karier di bidang teknologi 
-        hingga membangun produk digital sendiri. Selain itu, 
-        pemrograman juga melatih logika, kreativitas, dan cara berpikir sistematis.
-      </p>
+<h2>Kenapa Harus Belajar?</h2>
+  <p>
+    Menguasai bahasa pemrograman membuka peluang besar di dunia kerja, memperluas kreativitas dalam membangun produk digital, serta melatih logika dan pola pikir sistematis. Tidak heran, programmer kini menjadi salah satu profesi yang sangat dibutuhkan.
+  </p>
 
-      <img src="https://miro.medium.com/v2/resize:fit:1200/1*0RKyKwQ7u4J1MtdsgsR1ew.png" alt="Ilustrasi code editor">
+  <img src="https://miro.medium.com/v2/resize:fit:1200/1*0RKyKwQ7u4J1MtdsgsR1ew.png" alt="Ilustrasi coding">
 
-      <h2>Kesimpulan</h2>
-      <p>
-        Bahasa pemrograman adalah kunci utama dunia digital. 
-        Dari yang paling rendah seperti Assembly hingga bahasa populer modern seperti Python, 
-        semuanya punya fungsi dan tempat tersendiri. 
-        Memahami lebih dari satu bahasa memberi fleksibilitas dan memperluas wawasan kita 
-        dalam menyelesaikan berbagai tantangan teknologi.
-      </p>
-    </article>
-  </main>
+  <h2>Kesimpulan</h2>
+  <p>
+    Bahasa pemrograman adalah fondasi utama teknologi modern. Dari bahasa tingkat rendah seperti Assembly hingga bahasa populer seperti Python, masing-masing punya kegunaan khusus. Memahami beberapa bahasa memberi fleksibilitas dalam menyelesaikan berbagai tantangan teknologi.
+  </p>
+</article>
 
-  <script>
-    function toggleTheme() {
+  </main>  <script>
+    function toggleTheme(){
       document.body.classList.toggle('dark');
-      document.body.classList.toggle('light');
     }
-  </script>
-</body>
+  </script></body>
 </html>
